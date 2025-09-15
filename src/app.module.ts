@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MedicamentosModule } from './medicamentos/medicamentos.module';
+import { MedicamentoxusuariosModule } from './medicamentoxusuarios/medicamentoxusuarios.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { MedicamentosModule } from './medicamentos/medicamentos.module';
         rejectUnauthorized:false
       }
     }),
-    MedicamentosModule
+    MedicamentosModule,
+    MedicamentoxusuariosModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, Unique } from "typeorm";
+import { Medicamentoxusuario } from "src/medicamentoxusuarios/entities/medicamentoxusuario.entity";
+import { Entity, Column, PrimaryGeneratedColumn, Unique, ManyToOne } from "typeorm";
 
 @Entity()
 @Unique(["nombre", "concentracion", "formaFarmaceutica", "laboratorio"])
@@ -26,4 +27,6 @@ export class Medicamento {
     descripcion:string
     @Column('text')
     foto:string
+    @ManyToOne(()=>Medicamentoxusuario, (medicamentoXusuario)=>medicamentoXusuario.medicamento)
+    usuarios:Medicamentoxusuario[];
 }
