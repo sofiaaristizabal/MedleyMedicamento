@@ -25,7 +25,7 @@ export class Medicamentoxusuario {
     @Column()
     hora_inicio:string;
 
-    @Column()
+    @Column({ default: true })
     active:string;
 
 

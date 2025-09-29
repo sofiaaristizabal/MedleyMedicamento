@@ -2,8 +2,6 @@ import { Transform } from "class-transformer";
 import { IsString, MaxLength, Matches, IsUrl, IsNumber } from "class-validator";
 
 export class CreateMedicamentoDto {
-  
-  
 
   @IsString()
   @MaxLength(100)

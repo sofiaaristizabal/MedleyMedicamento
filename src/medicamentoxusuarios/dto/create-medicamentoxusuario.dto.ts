@@ -32,7 +32,14 @@ export class CreateMedicamentoxusuarioDto {
   @IsString()
   hora_inicio:string
 
+  @IsOptional()
   @IsBooleanString()
+  @Transform(({ value }) => {
+    if (value === undefined || value === null) {
+      return true; // default if not provided
+    }
+    return value === 'true'; // convert "true"/"false" → boolean
+  })
   active:string
 
 }
