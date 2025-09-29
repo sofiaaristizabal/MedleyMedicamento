@@ -1,5 +1,5 @@
 import { Transform } from "class-transformer";
-import { IsBooleanString, IsDateString, IsIn, IsNumberString, IsOptional, IsString } from "class-validator";
+import { IsBooleanString, IsDateString, IsIn, IsNumberString, IsOptional, IsString, Matches } from "class-validator";
 
 export class CreateMedicamentoxusuarioDto {
 
@@ -30,6 +30,9 @@ export class CreateMedicamentoxusuarioDto {
 
   @IsOptional()
   @IsString()
+  @Matches(/^([01]\d|2[0-3]):([0-5]\d)$/, {
+    message: 'hora_inicio must be in 24h format HH:MM (e.g. 08:00, 13:30, 22:45)',
+  })
   hora_inicio:string
 
   @IsOptional()
