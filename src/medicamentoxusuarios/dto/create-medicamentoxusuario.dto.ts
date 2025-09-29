@@ -11,7 +11,7 @@ export class CreateMedicamentoxusuarioDto {
 
     @IsNumberString()
     @Transform(({value}) => Number(value))
-    frecuecia:number;
+    frecuencia:number;
 
     @IsString()
     @IsIn(["minutos", "horas", "dias", "semanas", "meses"])
