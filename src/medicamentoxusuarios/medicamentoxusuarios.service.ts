@@ -31,24 +31,26 @@ export class MedicamentoxusuariosService {
       if(!response.data){
         throw new BadRequestException('usuario no encontrdo');
       }
+      console.log(id_usuario)
 
       const medicamento = await this.medicamentoService.findOne(id_medicamento);
       if (!medicamento){
         throw new BadRequestException('Medicamento no encontrado')
       }
+      console.log(medicamento)
 
       const medicamentoxusuario = this.medicamentoxusuariosRepository.create({
         id_usuario,
         medicamento,
         ...medicamentoxusuarioData
       })
-
+      console.log(medicamentoxusuario)
       await this.medicamentoxusuariosRepository.save(medicamentoxusuario);
       return medicamentoxusuario;
 
     }catch(err){
       console.log(err)
-      throw new BadRequestException(err.detail || 'Error al crear medicamento')
+      throw new BadRequestException(err.detail || 'Error al crear medicamentoxusuario')
     }
 
   }
