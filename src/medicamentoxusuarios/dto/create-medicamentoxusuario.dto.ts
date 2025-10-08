@@ -16,17 +16,11 @@ export class CreateMedicamentoxusuarioDto {
     @IsString()
     @IsIn(["minutos", "horas", "dias", "semanas", "meses"])
     frecuencia_unidad:string
-
+    
     @IsOptional()
     @IsDateString()
-    @Transform(({ value }) => {
-    if (!value) {
-      
-      return new Date();
-    }
-    return new Date(value); 
-  })
-  fecha_inicio:Date; 
+    @Transform(({ value }) => value ? new Date(value) : undefined) 
+    fecha_inicio?: Date; 
 
   @IsOptional()
   @IsString()

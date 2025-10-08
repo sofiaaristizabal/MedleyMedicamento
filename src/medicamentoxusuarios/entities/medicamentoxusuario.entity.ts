@@ -19,7 +19,7 @@ export class Medicamentoxusuario {
     @Column('text')
     frecuencia_unidad:string;
 
-    @Column()
+    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     fecha_inicio:Date;
 
     @Column()
