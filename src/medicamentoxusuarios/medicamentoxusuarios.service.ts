@@ -46,7 +46,7 @@ export class MedicamentoxusuariosService {
       })
       console.log(medicamentoxusuario)
       await this.medicamentoxusuariosRepository.save(medicamentoxusuario);
-      return medicamentoxusuario;
+      return {medicamentoxusuario, id_medicamento};
 
     }catch(err){
       console.log(err)
