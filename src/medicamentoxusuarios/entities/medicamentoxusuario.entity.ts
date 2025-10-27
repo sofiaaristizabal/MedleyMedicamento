@@ -1,5 +1,5 @@
 import { Medicamento } from "src/medicamentos/entities/medicamento.entity";
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 
 @Entity()
 export class Medicamentoxusuario {
@@ -10,7 +10,7 @@ export class Medicamentoxusuario {
     @Column('text')
     id_usuario:string;
 
-    @OneToMany(()=>Medicamento, (medicamento)=>medicamento.usuarios)
+    @ManyToOne(()=>Medicamento, (medicamento)=>medicamento.usuarios)
     medicamento:Medicamento;
 
     @Column()
